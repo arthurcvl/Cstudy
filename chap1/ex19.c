@@ -19,8 +19,7 @@ void lineGetter(char array[], int maxLength){
         array[i] = c;
     }
     if(c == '\n'){
-        array[i] = c;
-        i++;
+        array[i++] = c;
     }
     array[i] = '\0';
     return;
