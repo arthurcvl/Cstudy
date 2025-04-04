@@ -50,14 +50,14 @@ void findBackSlash(char array[]){
     for(int i = 0; i < arraySize; i++){ 
         if(array[i] == '/' && array[i + 1] == '*'){
             int j = i;
-            char c = array[j];
+            char c = array[j];  
             printf("\n------------ %c --------------\n", c);
-            while(c != '*' || (array[j + 1]) != '/'){
+            while(!(c == '*' && (array[j + 1]) == '/')){
                 removeArrayChar(array, j, arraySize);
                 c = array[j];
             }
-            removeArrayChar(array, j, arraySize); // remove /
             removeArrayChar(array, j, arraySize); // remove *
+            removeArrayChar(array, j, arraySize); // remove /
         }
     }
 }
