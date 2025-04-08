@@ -6,7 +6,7 @@
 void expand(char s1[], char s2[]);
 
 int main(){
-    char set[] = {'a','-','z'};
+    char set[] = {'-' , 'a', '-', 'z', '\0'};
     char set2[1000];
     expand(set, set2);
     printf("%s", set2);
@@ -16,11 +16,14 @@ void expand(char s1[], char s2[]){
     char c;
     int i = 0;
     int index = 0;
-    while((c = s1[i++]) != '\0' && s1[i] == '-'){
-        int asciiNumber = s1[i + 1] - c;
-        for(int j = 0; j <= asciiNumber; j++){
-            s2[index++] = c + j;
-        }
+    int verificator = 0;
+    while((c = s1[i++]) != '\0'){
+            if(s1[i] != '\0' && s1[i] == '-' && s1[i + 1] != '\0' && s1[i + 1] != '-'){
+                int asciiNumber = s1[i + 1] - c;
+                for(int j = 0; j <= asciiNumber; j++){
+                    s2[index++] = c + j;
+                }
+            }
     }
     s2[index] = '\0';
 }
