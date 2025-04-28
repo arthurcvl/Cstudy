@@ -47,7 +47,8 @@ void findSlashSlash(char array[]){
 }
 
 void findBackSlash(char array[]){
-    for(int i = 0; i < arraySize; i++){ 
+    bool inString = false;
+    for(int i = 0; i < arraySize; i++){
         if(array[i] == '/' && array[i + 1] == '*'){
             int j = i;
             char c = array[j];  
